@@ -110,12 +110,20 @@ public class Controller implements ActionListener{
         }
         
         else if(v instanceof MenuUtamaViewAdmin){
+            
             menuUtamaAdmin(e);
             if(selection instanceof KelolaUserPanelView){
                 menuKelolaUserAdmin((MenuUtamaViewAdmin) v, e);
             }
             else if(selection instanceof TambahUserView){
                 menuTambahUserAdmin((MenuUtamaViewAdmin) v, e);
+            }
+            
+            else if(selection instanceof KelolaBarangPanelView){
+                menuKelolaBArang((MenuUtamaViewAdmin) v, e);
+            }
+            else if(selection instanceof TambahBarangView){
+                menuTambahBarang((MenuUtamaViewAdmin) v, e);
             }
         }
     
@@ -140,6 +148,8 @@ public class Controller implements ActionListener{
         MenuUtamaViewAdmin menu = (MenuUtamaViewAdmin) v;
         if(e.equals(menu.getBtnBarang())){
             menu.changetoColorActive(menu.getPanelTabBarang());
+            toKelolaBarangMenu(menu);
+            
                         
         }
         else if(e.equals(menu.getBtnTanah())){
@@ -214,9 +224,14 @@ public class Controller implements ActionListener{
         disposeSelectionView(menu);
                 
         KelolaBarangPanelView kelolaBarangView = new KelolaBarangPanelView();
-        
+        listKategoriBarang = db.selectAllKategori();
+        listLokasi = db.selectAllLokasi(db.selectAllFakultas());
+        listBarang = db.selectAllDataBarang(listKategoriBarang, listLokasi);
         kelolaBarangView.setSize(menu.getPanelIsi().getSize());
         selection = kelolaBarangView;
+        
+        isiTabelBarang(kelolaBarangView);
+        
         menu.getPanelIsi().add(kelolaBarangView);
         menu.getPanelIsi().validate();
         menu.getPanelIsi().repaint();
@@ -224,7 +239,33 @@ public class Controller implements ActionListener{
           
     }
     
+    private void toKelolaBarangMenu(MenuUtamaViewAdmin menu){
+         disposeSelectionView(menu);
+                
+        KelolaBarangPanelView kelolaBarangView = new KelolaBarangPanelView();
+        listKategoriBarang = db.selectAllKategori();
+        listLokasi = db.selectAllLokasi(db.selectAllFakultas());
+        listBarang = db.selectAllDataBarang(listKategoriBarang, listLokasi);
+        kelolaBarangView.setSize(menu.getPanelIsi().getSize());
+        selection = kelolaBarangView;
+        
+        isiTabelBarang(kelolaBarangView);
+        
+        menu.getPanelIsi().add(kelolaBarangView);
+        menu.getPanelIsi().validate();
+        menu.getPanelIsi().repaint();
+        kelolaBarangView.addListener(this);
+    }
+    
     private void menuKelolaBarang(MenuUtamaView menu, Object e){
+        KelolaBarangPanelView kb = (KelolaBarangPanelView) selection;
+        if(e.equals(kb.getBtnTambahBarang())){
+            menu.setVisible(false);
+            toMenuTambahBarang(menu);
+        }
+    }
+    
+    private void menuKelolaBArang(MenuUtamaViewAdmin menu , Object e){
         KelolaBarangPanelView kb = (KelolaBarangPanelView) selection;
         if(e.equals(kb.getBtnTambahBarang())){
             menu.setVisible(false);
@@ -236,8 +277,13 @@ public class Controller implements ActionListener{
         
         disposeSelectionView(menu);
         
-        TambahBarangView tambahBarangView = new TambahBarangView();
+        listKategoriBarang = db.selectAllKategori();
+        listFakultas = db.selectAllFakultas();
+        listLokasi = db.selectAllLokasi(listFakultas);
         
+        TambahBarangView tambahBarangView = new TambahBarangView();
+        tambahBarangView.fillCboxKategori(listKategoriBarang);
+        tambahBarangView.fillCboxLokasi(listLokasi);
         selection = tambahBarangView;
         tambahBarangView.setVisible(true);
         tambahBarangView.addListener(this);
@@ -245,14 +291,125 @@ public class Controller implements ActionListener{
            
     }
     
-    private void menuTambahBarang(MenuUtamaView menu , Object e){
+    private void toMenuTambahBarang(MenuUtamaViewAdmin menu){
+         disposeSelectionView(menu);
+        
+        listKategoriBarang = db.selectAllKategori();
+        listFakultas = db.selectAllFakultas();
+        listLokasi = db.selectAllLokasi(listFakultas);
+        
+        TambahBarangView tambahBarangView = new TambahBarangView();
+        tambahBarangView.fillCboxKategori(listKategoriBarang);
+        tambahBarangView.fillCboxLokasi(listLokasi);
+        selection = tambahBarangView;
+        tambahBarangView.setVisible(true);
+        tambahBarangView.addListener(this);
+    }
+    
+    private void menuTambahBarang(MenuUtamaView menu, Object e){
         TambahBarangView tambahBarangView = (TambahBarangView) selection;
         if(e.equals(tambahBarangView.getBtnKembali())){
             menu.setVisible(true);
             tambahBarangView.dispose();
             toKelolaBarangMenu(menu);
         }
-        
+        else if(e.equals(tambahBarangView.getBtnTambah())){
+            String namaBarang = tambahBarangView.getTfNamaBarang().getText();
+            String harga = tambahBarangView.getTfHarga().getText();
+            int lokasi = tambahBarangView.getcBoxLokasi().getSelectedIndex();
+            String kb = tambahBarangView.getcBoxKategori().getSelectedItem().toString();
+            try{
+            Double h = Double.parseDouble(harga);
+            KategoriBarang b= null;
+            for(KategoriBarang kbarang:listKategoriBarang){
+                if(kbarang.getNamaKategori().equals(kb)){
+                    b = kbarang;
+                   
+                }
+            }
+            if(b!=null){
+                Lokasi l = null;
+                for(Lokasi lok:listLokasi){
+                    if(lok.getNamaLokasi().equals(listLokasi.get(lokasi).getNamaLokasi())){
+                        l = lok;
+                    }
+                }
+                if(l!=null){
+                    Barang bar = new Barang(String.valueOf(listBarang.size() + 1),
+                            namaBarang, "baik", h, b, l);
+                    
+                    if(db.insertDatabarang(bar)){
+                        menu.setVisible(true);
+                        tambahBarangView.dispose();
+                        toKelolaBarangMenu(menu);
+                    }
+                    else{
+                    
+                    }
+                }
+            
+            }
+            
+            }
+            catch(NumberFormatException ex){
+                ex.printStackTrace();
+            }
+            
+            
+        }
+    }
+    
+    private void menuTambahBarang(MenuUtamaViewAdmin menu, Object e){
+        TambahBarangView tambahBarangView = (TambahBarangView) selection;
+        if(e.equals(tambahBarangView.getBtnKembali())){
+            menu.setVisible(true);
+            tambahBarangView.dispose();
+            toKelolaBarangMenu(menu);
+        }
+        else if(e.equals(tambahBarangView.getBtnTambah())){
+            String namaBarang = tambahBarangView.getTfNamaBarang().getText();
+            String harga = tambahBarangView.getTfHarga().getText();
+            int lokasi = tambahBarangView.getcBoxLokasi().getSelectedIndex();
+            String kb = tambahBarangView.getcBoxKategori().getSelectedItem().toString();
+            try{
+            Double h = Double.parseDouble(harga);
+            KategoriBarang b= null;
+            for(KategoriBarang kbarang:listKategoriBarang){
+                if(kbarang.getNamaKategori().equals(kb)){
+                    b = kbarang;
+                   
+                }
+            }
+            if(b!=null){
+                Lokasi l = null;
+                for(Lokasi lok:listLokasi){
+                    if(lok.getNamaLokasi().equals(listLokasi.get(lokasi).getNamaLokasi())){
+                        l = lok;
+                    }
+                }
+                if(l!=null){
+                    Barang bar = new Barang(String.valueOf(listBarang.size() + 1),
+                            namaBarang, "baik", h, b, l);
+                    
+                    if(db.insertDatabarang(bar)){
+                        menu.setVisible(true);
+                        tambahBarangView.dispose();
+                        toKelolaBarangMenu(menu);
+                    }
+                    else{
+                    
+                    }
+                }
+            
+            }
+            
+            }
+            catch(NumberFormatException ex){
+                ex.printStackTrace();
+            }
+            
+            
+        }
     }
       
     private void toKelolatanahMenu(MenuUtamaView menu){
@@ -365,6 +522,10 @@ public class Controller implements ActionListener{
     private void disposeSelectionView(MenuUtamaViewAdmin menu){
         if(selection instanceof KelolaUserPanelView){
             KelolaUserPanelView k = (KelolaUserPanelView) selection;
+            menu.getPanelIsi().remove(k);
+        }
+        else if(selection instanceof KelolaBarangPanelView){
+            KelolaBarangPanelView k = (KelolaBarangPanelView) selection;
             menu.getPanelIsi().remove(k);
         }
         menu.validate();
@@ -480,5 +641,23 @@ public class Controller implements ActionListener{
         k.getTabelUser().setModel(new DefaultTableModel(data, col));
     }
     
+    private void isiTabelBarang(KelolaBarangPanelView kb){
+        String[] col = {"ID BARANG" , "NAMA BARANG" ,"HARGA BARANG" ,"STATUS", "KATEGORI BARANG" , "LOKASI" };
+        String [][]data = new String[listBarang.size()][col.length];
+        
+        int i=0;
+        for(Barang b: listBarang){
+            data[i][0] = b.getIdBarang();
+            data[i][1] = b.getNamaBarang();
+            data[i][2] = String.valueOf( b.getHargaBarang());
+            data[i][3] = b.getStatus();
+            data[i][4] = b.getKategoriBarang().getNamaKategori();
+            data[i][5] = b.getLokasi().getNamaLokasi() + "-" + b.getLokasi().getFakultas().getNamaFakultas();
+            i++;
+        }
+        
+        kb.getTabelBarang().setModel(new DefaultTableModel(data, col));
+        
+    }
     
 }

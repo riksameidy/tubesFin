@@ -8,6 +8,7 @@ package view;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
@@ -213,6 +214,11 @@ public class KelolaBarangPanelView extends javax.swing.JPanel implements View{
     public void setBtnTambahBarang(JButton btnTambahBarang) {
         this.btnTambahBarang = btnTambahBarang;
     }
+
+    public JTable getTabelBarang() {
+        return tabelBarang;
+    }
+    
     
     
     

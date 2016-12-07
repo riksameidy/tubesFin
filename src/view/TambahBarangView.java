@@ -6,9 +6,12 @@
 package view;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+import model.KategoriBarang;
+import model.Lokasi;
 
 /**
  *
@@ -21,6 +24,9 @@ public class TambahBarangView extends javax.swing.JFrame implements View{
      */
     public TambahBarangView() {
         initComponents();
+        cBoxKategori.removeAllItems();
+        cBoxLokasi.removeAllItems();
+        
     }
 
     /**
@@ -33,12 +39,10 @@ public class TambahBarangView extends javax.swing.JFrame implements View{
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        tfJumlah = new javax.swing.JTextField();
         tfHarga = new javax.swing.JTextField();
         cBoxLokasi = new javax.swing.JComboBox<>();
         cBoxKategori = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -70,9 +74,6 @@ public class TambahBarangView extends javax.swing.JFrame implements View{
 
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel1.setText("Nama Barang");
-
-        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel2.setText("Jumlah");
 
         jLabel5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel5.setText("Harga");
@@ -143,14 +144,12 @@ public class TambahBarangView extends javax.swing.JFrame implements View{
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel2)
                             .addComponent(jLabel5)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4))
                         .addGap(61, 61, 61)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(tfHarga, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
-                            .addComponent(tfJumlah, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
                             .addComponent(tfNamaBarang, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(cBoxLokasi, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cBoxKategori, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -167,10 +166,6 @@ public class TambahBarangView extends javax.swing.JFrame implements View{
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(tfNamaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -233,13 +228,11 @@ public class TambahBarangView extends javax.swing.JFrame implements View{
     private javax.swing.JComboBox<String> cBoxKategori;
     private javax.swing.JComboBox<String> cBoxLokasi;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField tfHarga;
-    private javax.swing.JTextField tfJumlah;
     private javax.swing.JTextField tfNamaBarang;
     // End of variables declaration//GEN-END:variables
 
@@ -274,15 +267,23 @@ public class TambahBarangView extends javax.swing.JFrame implements View{
         return tfHarga;
     }
 
-    public JTextField getTfJumlah() {
-        return tfJumlah;
-    }
+    
 
     public JTextField getTfNamaBarang() {
         return tfNamaBarang;
     }
     
+    public void fillCboxKategori(ArrayList<KategoriBarang> listKategori){
+        for(KategoriBarang k: listKategori){
+            cBoxKategori.addItem(k.getNamaKategori());
+        }
+    }
     
+    public void fillCboxLokasi(ArrayList<Lokasi> listLokasi){
+        for(Lokasi k: listLokasi){
+            cBoxLokasi.addItem(k.getNamaLokasi() + " - " + k.getFakultas().getNamaFakultas());
+        }
+    }
     
     
 }
