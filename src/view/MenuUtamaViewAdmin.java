@@ -73,6 +73,7 @@ public class MenuUtamaViewAdmin extends javax.swing.JFrame implements View {
         BtnBarang.setForeground(new java.awt.Color(255, 255, 255));
         BtnBarang.setText("Kelola Barang");
         BtnBarang.setBorder(null);
+        BtnBarang.setContentAreaFilled(false);
 
         javax.swing.GroupLayout panelTabBarangLayout = new javax.swing.GroupLayout(panelTabBarang);
         panelTabBarang.setLayout(panelTabBarangLayout);
@@ -96,6 +97,7 @@ public class MenuUtamaViewAdmin extends javax.swing.JFrame implements View {
         btnTanah.setForeground(new java.awt.Color(255, 255, 255));
         btnTanah.setText("Kelola Tanah");
         btnTanah.setBorder(null);
+        btnTanah.setContentAreaFilled(false);
 
         javax.swing.GroupLayout panelTabTanahLayout = new javax.swing.GroupLayout(panelTabTanah);
         panelTabTanah.setLayout(panelTabTanahLayout);
@@ -118,6 +120,7 @@ public class MenuUtamaViewAdmin extends javax.swing.JFrame implements View {
         btnMutasi.setForeground(new java.awt.Color(255, 255, 255));
         btnMutasi.setText("Kelola Mutasi");
         btnMutasi.setBorder(null);
+        btnMutasi.setContentAreaFilled(false);
 
         javax.swing.GroupLayout panelTabMutasiLayout = new javax.swing.GroupLayout(panelTabMutasi);
         panelTabMutasi.setLayout(panelTabMutasiLayout);
@@ -142,6 +145,7 @@ public class MenuUtamaViewAdmin extends javax.swing.JFrame implements View {
         btnLaporan.setForeground(new java.awt.Color(255, 255, 255));
         btnLaporan.setText("Kelola Laporan");
         btnLaporan.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnLaporan.setContentAreaFilled(false);
 
         javax.swing.GroupLayout panelTabLaporanLayout = new javax.swing.GroupLayout(panelTabLaporan);
         panelTabLaporan.setLayout(panelTabLaporanLayout);
@@ -165,12 +169,13 @@ public class MenuUtamaViewAdmin extends javax.swing.JFrame implements View {
         btnKelolaUser.setForeground(new java.awt.Color(255, 255, 255));
         btnKelolaUser.setText("Kelola User");
         btnKelolaUser.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnKelolaUser.setContentAreaFilled(false);
 
         javax.swing.GroupLayout panelTabKelolaUserLayout = new javax.swing.GroupLayout(panelTabKelolaUser);
         panelTabKelolaUser.setLayout(panelTabKelolaUserLayout);
         panelTabKelolaUserLayout.setHorizontalGroup(
             panelTabKelolaUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 181, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(panelTabKelolaUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelTabKelolaUserLayout.createSequentialGroup()
                     .addGap(3, 3, 3)
@@ -179,7 +184,7 @@ public class MenuUtamaViewAdmin extends javax.swing.JFrame implements View {
         );
         panelTabKelolaUserLayout.setVerticalGroup(
             panelTabKelolaUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 71, Short.MAX_VALUE)
+            .addGap(0, 81, Short.MAX_VALUE)
             .addGroup(panelTabKelolaUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelTabKelolaUserLayout.createSequentialGroup()
                     .addContainerGap()
@@ -194,26 +199,26 @@ public class MenuUtamaViewAdmin extends javax.swing.JFrame implements View {
         btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("Logout");
         btnLogout.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnLogout.setContentAreaFilled(false);
 
         javax.swing.GroupLayout panelTabLogoutLayout = new javax.swing.GroupLayout(panelTabLogout);
         panelTabLogout.setLayout(panelTabLogoutLayout);
         panelTabLogoutLayout.setHorizontalGroup(
             panelTabLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 169, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(panelTabLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelTabLogoutLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(btnLogout)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTabLogoutLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         panelTabLogoutLayout.setVerticalGroup(
             panelTabLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 71, Short.MAX_VALUE)
             .addGroup(panelTabLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelTabLogoutLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(btnLogout)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTabLogoutLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)))
         );
 
         panelTabKelolaLainnya.setBackground(new java.awt.Color(48, 63, 159));
@@ -223,26 +228,23 @@ public class MenuUtamaViewAdmin extends javax.swing.JFrame implements View {
         btnKelolaLainnya.setForeground(new java.awt.Color(255, 255, 255));
         btnKelolaLainnya.setText("Kelola Lainnya");
         btnKelolaLainnya.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnKelolaLainnya.setContentAreaFilled(false);
 
         javax.swing.GroupLayout panelTabKelolaLainnyaLayout = new javax.swing.GroupLayout(panelTabKelolaLainnya);
         panelTabKelolaLainnya.setLayout(panelTabKelolaLainnyaLayout);
         panelTabKelolaLainnyaLayout.setHorizontalGroup(
             panelTabKelolaLainnyaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 169, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(panelTabKelolaLainnyaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelTabKelolaLainnyaLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(btnKelolaLainnya)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTabKelolaLainnyaLayout.createSequentialGroup()
+                    .addComponent(btnKelolaLainnya, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         panelTabKelolaLainnyaLayout.setVerticalGroup(
             panelTabKelolaLainnyaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 71, Short.MAX_VALUE)
             .addGroup(panelTabKelolaLainnyaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelTabKelolaLainnyaLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(btnKelolaLainnya)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(btnKelolaLainnya, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelTabLayout = new javax.swing.GroupLayout(panelTab);
@@ -258,11 +260,11 @@ public class MenuUtamaViewAdmin extends javax.swing.JFrame implements View {
             .addComponent(panelTabLaporan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panelTabKelolaUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelTabLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addGroup(panelTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelTabKelolaLainnya, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelTabLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
         panelTabLayout.setVerticalGroup(
             panelTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,7 +294,7 @@ public class MenuUtamaViewAdmin extends javax.swing.JFrame implements View {
         panelIsi.setLayout(panelIsiLayout);
         panelIsiLayout.setHorizontalGroup(
             panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
+            .addGap(0, 702, Short.MAX_VALUE)
         );
         panelIsiLayout.setVerticalGroup(
             panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -304,10 +306,10 @@ public class MenuUtamaViewAdmin extends javax.swing.JFrame implements View {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelTab, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(panelTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(panelIsi, javax.swing.GroupLayout.DEFAULT_SIZE, 714, Short.MAX_VALUE))
+                .addComponent(panelIsi, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

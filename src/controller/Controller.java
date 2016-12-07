@@ -8,7 +8,10 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import misc.Database;
 import model.AdminFakultas;
 import model.Barang;
@@ -22,10 +25,13 @@ import model.PemeliharaanBarang;
 import model.PemindahanBarang;
 import view.KelolaBarangPanelView;
 import view.KelolaTanahPanelView;
+import view.KelolaUserPanelView;
 import view.LoginView;
 import view.MenuUtamaView;
+import view.MenuUtamaViewAdmin;
 import view.TambahBarangView;
 import view.TambahTanahView;
+import view.TambahUserView;
 import view.View;
 
 /**
@@ -55,8 +61,6 @@ public class Controller implements ActionListener{
         
         instansiasiAllList();
         db = new Database();
-        db.createConnection();
-        //listDI = db.selectAllDI();
         toLoginMenu();
         
     }
@@ -104,6 +108,16 @@ public class Controller implements ActionListener{
             
             
         }
+        
+        else if(v instanceof MenuUtamaViewAdmin){
+            menuUtamaAdmin(e);
+            if(selection instanceof KelolaUserPanelView){
+                menuKelolaUserAdmin((MenuUtamaViewAdmin) v, e);
+            }
+            else if(selection instanceof TambahUserView){
+                menuTambahUserAdmin((MenuUtamaViewAdmin) v, e);
+            }
+        }
     
     }
     
@@ -113,6 +127,48 @@ public class Controller implements ActionListener{
         v = loginView;
         loginView.setVisible(true);
         loginView.addListener(this);
+    }
+    
+    private void toMenuUtamaAdmin(){
+        MenuUtamaViewAdmin menu = new MenuUtamaViewAdmin();
+        menu.setVisible(true);
+        v = menu;
+        menu.addListener(this);
+    }
+    
+    private void menuUtamaAdmin(Object e){
+        MenuUtamaViewAdmin menu = (MenuUtamaViewAdmin) v;
+        if(e.equals(menu.getBtnBarang())){
+            menu.changetoColorActive(menu.getPanelTabBarang());
+                        
+        }
+        else if(e.equals(menu.getBtnTanah())){
+            menu.changetoColorActive(menu.getPanelTabTanah());
+            
+        
+        }
+        else if(e.equals(menu.getBtnMutasi())){
+            menu.changetoColorActive(menu.getPanelTabMutasi());
+            
+        }
+        else if(e.equals(menu.getBtnLaporan())){
+            menu.changetoColorActive(menu.getPanelTabLaporan());
+        }
+        
+        else if(e.equals(menu.getBtnKelolaUser())){
+            menu.changetoColorActive(menu.getPanelTabKelolaUser());
+            toKelolaUserMenuAdmin(menu);
+        }
+        else if(e.equals(menu.getBtnKelolaLainnya())){
+            menu.changetoColorActive(menu.getPanelTabKelolaLainnya());
+        }
+        else if(e.equals(menu.getBtnLogout())){
+            menu.changetoColorActive(menu.getPanelTabLogout());
+            menu.setVisible(false);
+            menu.dispose();
+            toLoginMenu();
+            
+        }
     }
     
     private void toMenuUtama(){
@@ -248,15 +304,23 @@ public class Controller implements ActionListener{
     
     private void loginMenu(Object e){
         
-        //listDI = db.selectAllDI();
+        listDI = db.selectAllDI();
+        listAdmin = db.selectAllAdmin();
+        
         LoginView view = (LoginView) v;
         if(e.equals(view.getBtnLogin())){
-            String username = view.getTfUsername().toString();
-            String password = view.getTfPassword().toString();
+            String username = view.getTfUsername().getText();
+            String password = view.getTfPassword().getText();
+          
             if(validateLogin(username, password)==1){
                 view.setVisible(false);
                 view.dispose();
                 toMenuUtama();
+            }
+            else if(validateLogin(username, password)==2){
+                view.setVisible(false);
+                view.dispose();
+                toMenuUtamaAdmin();
             }
             else{
                 view.getTfUsername().setText("");
@@ -269,7 +333,14 @@ public class Controller implements ActionListener{
     
     private int validateLogin(String username , String password){
         if(searchDI(username, password)==null){
-            return -1;
+            
+            if(searchAdmin(username, password)==null){
+                
+                return -1;
+            }
+            else{
+                return 2;
+            }
         }
         else{
             return 1;
@@ -291,6 +362,77 @@ public class Controller implements ActionListener{
         
     }
     
+    private void disposeSelectionView(MenuUtamaViewAdmin menu){
+        if(selection instanceof KelolaUserPanelView){
+            KelolaUserPanelView k = (KelolaUserPanelView) selection;
+            menu.getPanelIsi().remove(k);
+        }
+        menu.validate();
+        menu.repaint();
+    }
+    
+    private void toKelolaUserMenuAdmin(MenuUtamaViewAdmin menu ){
+        disposeSelectionView(menu);
+        KelolaUserPanelView kelolaUserPanelView = new KelolaUserPanelView();
+        kelolaUserPanelView.setSize(menu.getPanelIsi().getSize());
+        selection = kelolaUserPanelView;
+        
+        listDI = db.selectAllDI();
+        listAdmin = db.selectAllAdmin();
+        
+        isiTabelUser(kelolaUserPanelView);
+        menu.getPanelIsi().add(kelolaUserPanelView);
+        menu.getPanelIsi().validate();
+        menu.getPanelIsi().repaint();
+        kelolaUserPanelView.addListener(this);
+    }
+    
+    private void menuKelolaUserAdmin(MenuUtamaViewAdmin menu, Object e){
+        
+        KelolaUserPanelView ku = (KelolaUserPanelView) selection;
+        if(e.equals(ku.getBtnTambahUser())){
+            menu.setVisible(false);
+            toMenuTambahUserAdmin(menu);
+        }
+    }
+    
+    private void toMenuTambahUserAdmin(MenuUtamaViewAdmin menu){
+        disposeSelectionView(menu);
+        TambahUserView tambahUserView = new TambahUserView();
+        selection = tambahUserView;
+        
+        tambahUserView.setVisible(true);
+        tambahUserView.addListener(this);
+    }
+    
+    private void menuTambahUserAdmin(MenuUtamaViewAdmin menu , Object e){
+        
+        TambahUserView t = (TambahUserView) selection;
+        if(e.equals(t.getBtnKembali())){
+            t.dispose();
+            menu.setVisible(true);
+            toKelolaUserMenuAdmin(menu);
+        }
+        else if(e.equals(t.getBtnTambah())){
+            String username = t.getTfUsername().getText();
+            String password = t.getTfPassword().getText();
+            String nama = t.getTfNama().getText();
+            int jenis = t.getCbJenisUser().getSelectedIndex();
+            if(jenis==0){
+                AdminFakultas admin = new AdminFakultas(username, password, nama);
+                if(db.insertDataAdmin(admin)){
+                    t.dispose();
+                    menu.setVisible(true);
+                    toKelolaUserMenuAdmin(menu);
+                }
+                else{
+                    
+                }
+            }
+            
+        }
+    }
+    
     
     private DepartemenInvetaris searchDI(String username , String password){
        for( DepartemenInvetaris f: listDI){
@@ -301,7 +443,42 @@ public class Controller implements ActionListener{
        return null;
     }
     
+    private AdminFakultas searchAdmin(String username , String password){
+       for( AdminFakultas f: listAdmin){
+           if(f.getUsername().equals(username)&&f.getPassword().equals(password)){
+               return f;
+           }
+       }
+       return null;
+    }
     
+    private void isiTabelUser(KelolaUserPanelView k){
+        String[] col = new String[3];
+        col[0] = "Username"; col[1] = "Nama User"; col[2] = "Jenis User";
+        String[][] data = new String[listAdmin.size()+listDI.size()+listDK.size()][3];
+        int i=0;
+        for(AdminFakultas admin: listAdmin){
+            data[i][0] = admin.getUsername();
+            data[i][1] = admin.getNama();
+            data[i][2] = "Admin Fakultas";
+            i++;
+        }
+        for(DepartemenInvetaris di: listDI){
+            data[i][0] = di.getUsername();
+            data[i][1] = di.getNama();
+            data[i][2] = "Departemen Inventaris";
+            i++;
+        }
+        for(DepartemenKeuangan dk: listDK){
+            data[i][0] = dk.getUsername();
+            data[i][1] = dk.getNama();
+            data[i][2] = "Departemen Keuangan";
+            i++;
+        }
+        
+        
+        k.getTabelUser().setModel(new DefaultTableModel(data, col));
+    }
     
     
 }

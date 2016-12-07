@@ -75,6 +75,7 @@ public class KelolaTanahPanelView extends javax.swing.JPanel implements View{
         btnTambahTanah.setForeground(new java.awt.Color(255, 255, 255));
         btnTambahTanah.setText("Tambah Tanah");
         btnTambahTanah.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnTambahTanah.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -96,13 +97,14 @@ public class KelolaTanahPanelView extends javax.swing.JPanel implements View{
         btnCari.setForeground(new java.awt.Color(255, 255, 255));
         btnCari.setText("Search");
         btnCari.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnCari.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(8, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCari, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -121,6 +123,7 @@ public class KelolaTanahPanelView extends javax.swing.JPanel implements View{
         btnPilihTanah.setForeground(new java.awt.Color(255, 255, 255));
         btnPilihTanah.setText("Pilih Tanah");
         btnPilihTanah.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnPilihTanah.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

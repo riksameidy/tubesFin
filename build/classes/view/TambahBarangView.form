@@ -62,24 +62,21 @@
                               <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="tfHarga" alignment="0" min="-2" pref="326" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="tfJumlah" alignment="1" pref="326" max="32767" attributes="0"/>
-                                  <Component id="tfNamaBarang" alignment="1" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="cBoxLokasi" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="cBoxKategori" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="tfHarga" alignment="0" pref="326" max="32767" attributes="0"/>
+                              <Component id="tfJumlah" alignment="1" pref="326" max="32767" attributes="0"/>
+                              <Component id="tfNamaBarang" alignment="1" max="32767" attributes="0"/>
+                              <Component id="cBoxLokasi" alignment="0" max="32767" attributes="0"/>
+                              <Component id="cBoxKategori" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="btnTambahPanel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="348" max="-2" attributes="0"/>
                           <Component id="btnTambahPanel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -236,6 +233,7 @@
                     <EmptyBorder/>
                   </Border>
                 </Property>
+                <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnKembaliActionPerformed"/>
@@ -282,6 +280,7 @@
                     <EmptyBorder/>
                   </Border>
                 </Property>
+                <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTambahActionPerformed"/>

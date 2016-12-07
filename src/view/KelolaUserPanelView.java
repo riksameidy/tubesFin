@@ -8,6 +8,8 @@ package view;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
@@ -15,16 +17,16 @@ import javax.swing.border.LineBorder;
  *
  * @author apple
  */
-public class KelolaBarangPanelView extends javax.swing.JPanel implements View{
+public class KelolaUserPanelView extends javax.swing.JPanel implements View{
 
     /**
      * Creates new form KelolaBarangPanelView
      */
-    public KelolaBarangPanelView() {
+    public KelolaUserPanelView() {
         initComponents();
-        tabelBarang.getTableHeader().setBackground(Color.WHITE);
-        tabelBarang.getTableHeader().setBorder(new LineBorder(Color.BLACK));
-        tabelBarang.getTableHeader().setForeground(Color.BLACK);
+        tabelUser.getTableHeader().setBackground(Color.WHITE);
+        tabelUser.getTableHeader().setBorder(new LineBorder(Color.BLACK));
+        tabelUser.getTableHeader().setForeground(Color.BLACK);
         
     }
 
@@ -38,14 +40,14 @@ public class KelolaBarangPanelView extends javax.swing.JPanel implements View{
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelBarang = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        tabelUser = new javax.swing.JTable();
+        tfCariUser = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
-        btnTambahBarang = new javax.swing.JButton();
+        btnTambahUser = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btnCari = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        btnPilihBarang = new javax.swing.JButton();
+        btnPilihUser = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(800, 600));
@@ -53,8 +55,8 @@ public class KelolaBarangPanelView extends javax.swing.JPanel implements View{
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        tabelBarang.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        tabelBarang.setModel(new javax.swing.table.DefaultTableModel(
+        tabelUser.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        tabelUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -65,28 +67,27 @@ public class KelolaBarangPanelView extends javax.swing.JPanel implements View{
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabelBarang.setEnabled(false);
-        tabelBarang.setSelectionBackground(new java.awt.Color(48, 63, 159));
-        jScrollPane1.setViewportView(tabelBarang);
+        tabelUser.setSelectionBackground(new java.awt.Color(68, 138, 255));
+        jScrollPane1.setViewportView(tabelUser);
 
         jPanel1.setBackground(new java.awt.Color(48, 63, 159));
 
-        btnTambahBarang.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        btnTambahBarang.setForeground(new java.awt.Color(255, 255, 255));
-        btnTambahBarang.setText("Tambah Barang");
-        btnTambahBarang.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btnTambahBarang.setContentAreaFilled(false);
+        btnTambahUser.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        btnTambahUser.setForeground(new java.awt.Color(255, 255, 255));
+        btnTambahUser.setText("Tambah User");
+        btnTambahUser.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnTambahUser.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnTambahBarang, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+            .addComponent(btnTambahUser, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(btnTambahBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnTambahUser, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -119,11 +120,11 @@ public class KelolaBarangPanelView extends javax.swing.JPanel implements View{
         jPanel3.setBackground(new java.awt.Color(48, 63, 159));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
 
-        btnPilihBarang.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        btnPilihBarang.setForeground(new java.awt.Color(255, 255, 255));
-        btnPilihBarang.setText("Pilih Barang");
-        btnPilihBarang.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btnPilihBarang.setContentAreaFilled(false);
+        btnPilihUser.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        btnPilihUser.setForeground(new java.awt.Color(255, 255, 255));
+        btnPilihUser.setText("Pilih User");
+        btnPilihUser.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnPilihUser.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -131,14 +132,14 @@ public class KelolaBarangPanelView extends javax.swing.JPanel implements View{
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnPilihBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPilihUser, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnPilihBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPilihUser, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -153,7 +154,7 @@ public class KelolaBarangPanelView extends javax.swing.JPanel implements View{
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 241, Short.MAX_VALUE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfCariUser, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -167,7 +168,7 @@ public class KelolaBarangPanelView extends javax.swing.JPanel implements View{
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1)
+                    .addComponent(tfCariUser)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
@@ -180,8 +181,8 @@ public class KelolaBarangPanelView extends javax.swing.JPanel implements View{
     @Override
     public void addListener(ActionListener l) {
         btnCari.addActionListener(l);
-        btnPilihBarang.addActionListener(l);
-        btnTambahBarang.addActionListener(l);
+        btnPilihUser.addActionListener(l);
+        btnTambahUser.addActionListener(l);
         
     }
 
@@ -194,38 +195,36 @@ public class KelolaBarangPanelView extends javax.swing.JPanel implements View{
         return btnCari;
     }
 
-    public void setBtnCari(JButton btnCari) {
-        this.btnCari = btnCari;
+    public JButton getBtnPilihUser() {
+        return btnPilihUser;
     }
 
-    public JButton getBtnPilihBarang() {
-        return btnPilihBarang;
+    public JButton getBtnTambahUser() {
+        return btnTambahUser;
     }
 
-    public void setBtnPilihBarang(JButton btnPilihBarang) {
-        this.btnPilihBarang = btnPilihBarang;
+    public JTable getTabelUser() {
+        return tabelUser;
     }
 
-    public JButton getBtnTambahBarang() {
-        return btnTambahBarang;
+    public JTextField getTfCariUser() {
+        return tfCariUser;
     }
 
-    public void setBtnTambahBarang(JButton btnTambahBarang) {
-        this.btnTambahBarang = btnTambahBarang;
-    }
+   
     
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCari;
-    private javax.swing.JButton btnPilihBarang;
-    private javax.swing.JButton btnTambahBarang;
+    private javax.swing.JButton btnPilihUser;
+    private javax.swing.JButton btnTambahUser;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTable tabelBarang;
+    private javax.swing.JTable tabelUser;
+    private javax.swing.JTextField tfCariUser;
     // End of variables declaration//GEN-END:variables
 }

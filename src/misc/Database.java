@@ -7,10 +7,14 @@ package misc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.AdminFakultas;
 import model.DepartemenInvetaris;
 
 /**
@@ -37,10 +41,7 @@ public class Database {
         }
     }
     
-    public ArrayList<DepartemenInvetaris> selectAllDI(){
-        
-        
-        
+    public ArrayList<DepartemenInvetaris> selectAllDI(){  
         ArrayList<DepartemenInvetaris> listDI = new ArrayList<>();
         Statement stmt;
         String query = "select * from DepartemenInventaris";
@@ -49,8 +50,8 @@ public class Database {
            stmt = con.createStatement();
            ResultSet rs= stmt.executeQuery(query);
            while(rs.next()){
-               listDI.add(new DepartemenInvetaris(rs.getString("username"), rs.getString("password"),
-                       rs.getString("nama"),rs.getString("idDI")));
+               listDI.add(new DepartemenInvetaris(rs.getString("IdDI"), rs.getString("username"),
+                       rs.getString("password"),rs.getString("nama")));
            }
            con.close();
 
@@ -61,6 +62,51 @@ public class Database {
             return null;
         }
         
+    }
+    
+    public ArrayList<AdminFakultas> selectAllAdmin(){  
+        ArrayList<AdminFakultas> listAdmin = new ArrayList<>();
+        Statement stmt;
+        String query = "select * from admin";
+        try{
+           createConnection();
+           stmt = con.createStatement();
+           ResultSet rs= stmt.executeQuery(query);
+           while(rs.next()){
+               listAdmin.add(new AdminFakultas(rs.getString("username"), rs.getString("password"), rs.getString("nama")));
+                       
+           }
+           con.close();
+
+           return listAdmin;
+            
+        }
+        catch( SQLException e){
+            return null;
+        }
+        
+    }
+    
+    public boolean insertDataAdmin(AdminFakultas adminFakultas){
+        
+        try {
+            createConnection();
+            String query = "insert into admin ( username , password , nama ) "
+                    + "values (?,?,?)";
+            
+            PreparedStatement p = con.prepareStatement(query);
+            p.setString(1,adminFakultas.getUsername());
+            p.setString(2,adminFakultas.getPassword());
+            p.setString(3,adminFakultas.getNama());
+            
+            
+            p.execute();
+            con.close();
+            return true;
+            
+        } catch (SQLException ex) {
+            return false;
+        }
     }
     
     

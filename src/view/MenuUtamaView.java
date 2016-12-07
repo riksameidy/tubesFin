@@ -69,6 +69,7 @@ public class MenuUtamaView extends javax.swing.JFrame implements View {
         BtnBarang.setForeground(new java.awt.Color(255, 255, 255));
         BtnBarang.setText("Kelola Barang");
         BtnBarang.setBorder(null);
+        BtnBarang.setContentAreaFilled(false);
 
         javax.swing.GroupLayout panelTabBarangLayout = new javax.swing.GroupLayout(panelTabBarang);
         panelTabBarang.setLayout(panelTabBarangLayout);
@@ -92,6 +93,7 @@ public class MenuUtamaView extends javax.swing.JFrame implements View {
         btnTanah.setForeground(new java.awt.Color(255, 255, 255));
         btnTanah.setText("Kelola Tanah");
         btnTanah.setBorder(null);
+        btnTanah.setContentAreaFilled(false);
 
         javax.swing.GroupLayout panelTabTanahLayout = new javax.swing.GroupLayout(panelTabTanah);
         panelTabTanah.setLayout(panelTabTanahLayout);
@@ -114,6 +116,7 @@ public class MenuUtamaView extends javax.swing.JFrame implements View {
         btnMutasi.setForeground(new java.awt.Color(255, 255, 255));
         btnMutasi.setText("Kelola Mutasi");
         btnMutasi.setBorder(null);
+        btnMutasi.setContentAreaFilled(false);
 
         javax.swing.GroupLayout panelTabMutasiLayout = new javax.swing.GroupLayout(panelTabMutasi);
         panelTabMutasi.setLayout(panelTabMutasiLayout);
@@ -138,14 +141,16 @@ public class MenuUtamaView extends javax.swing.JFrame implements View {
         btnLaporan.setForeground(new java.awt.Color(255, 255, 255));
         btnLaporan.setText("Kelola Laporan");
         btnLaporan.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnLaporan.setContentAreaFilled(false);
 
         javax.swing.GroupLayout panelTabLaporanLayout = new javax.swing.GroupLayout(panelTabLaporan);
         panelTabLaporan.setLayout(panelTabLaporanLayout);
         panelTabLaporanLayout.setHorizontalGroup(
             panelTabLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelTabLaporanLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(btnLaporan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTabLaporanLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnLaporan, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         panelTabLaporanLayout.setVerticalGroup(
             panelTabLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,12 +166,13 @@ public class MenuUtamaView extends javax.swing.JFrame implements View {
         btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("Logout");
         btnLogout.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnLogout.setContentAreaFilled(false);
 
         javax.swing.GroupLayout panelTabLogoutLayout = new javax.swing.GroupLayout(panelTabLogout);
         panelTabLogout.setLayout(panelTabLogoutLayout);
         panelTabLogoutLayout.setHorizontalGroup(
             panelTabLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 169, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(panelTabLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelTabLogoutLayout.createSequentialGroup()
                     .addGap(3, 3, 3)
@@ -175,7 +181,7 @@ public class MenuUtamaView extends javax.swing.JFrame implements View {
         );
         panelTabLogoutLayout.setVerticalGroup(
             panelTabLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 71, Short.MAX_VALUE)
+            .addGap(0, 81, Short.MAX_VALUE)
             .addGroup(panelTabLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelTabLogoutLayout.createSequentialGroup()
                     .addContainerGap()
@@ -190,7 +196,9 @@ public class MenuUtamaView extends javax.swing.JFrame implements View {
             .addGroup(panelTabLayout.createSequentialGroup()
                 .addGroup(panelTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(panelTabTanah, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelTabBarang, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelTabLayout.createSequentialGroup()
+                        .addGap(0, 0, 0)
+                        .addComponent(panelTabBarang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(panelTabMutasi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(panelTabLaporan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -201,7 +209,7 @@ public class MenuUtamaView extends javax.swing.JFrame implements View {
             .addGroup(panelTabLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelTabBarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addGap(6, 6, 6)
                 .addComponent(panelTabTanah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(panelTabMutasi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -209,22 +217,24 @@ public class MenuUtamaView extends javax.swing.JFrame implements View {
                 .addComponent(panelTabLaporan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(panelTabLogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(270, Short.MAX_VALUE))
         );
 
         panelIsi.setBackground(new java.awt.Color(255, 255, 255));
         panelIsi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        panelIsi.setMaximumSize(new java.awt.Dimension(800, 600));
+        panelIsi.setMinimumSize(new java.awt.Dimension(800, 600));
         panelIsi.setPreferredSize(new java.awt.Dimension(800, 600));
 
         javax.swing.GroupLayout panelIsiLayout = new javax.swing.GroupLayout(panelIsi);
         panelIsi.setLayout(panelIsiLayout);
         panelIsiLayout.setHorizontalGroup(
             panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 724, Short.MAX_VALUE)
+            .addGap(0, 798, Short.MAX_VALUE)
         );
         panelIsiLayout.setVerticalGroup(
             panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 598, Short.MAX_VALUE)
+            .addGap(0, 604, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -232,17 +242,17 @@ public class MenuUtamaView extends javax.swing.JFrame implements View {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addComponent(panelTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(panelIsi, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE))
+                .addComponent(panelIsi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelTab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelIsi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panelIsi, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

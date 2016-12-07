@@ -63,6 +63,7 @@ public class MenuUtamaViewKeuangan extends javax.swing.JFrame implements View {
         BtnKelolaLaporan.setForeground(new java.awt.Color(255, 255, 255));
         BtnKelolaLaporan.setText("Kelola Laporan");
         BtnKelolaLaporan.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        BtnKelolaLaporan.setContentAreaFilled(false);
 
         javax.swing.GroupLayout panelTabLaporanLayout = new javax.swing.GroupLayout(panelTabLaporan);
         panelTabLaporan.setLayout(panelTabLaporanLayout);
@@ -86,6 +87,7 @@ public class MenuUtamaViewKeuangan extends javax.swing.JFrame implements View {
         btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("Logout");
         btnLogout.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnLogout.setContentAreaFilled(false);
 
         javax.swing.GroupLayout panelTabLogoutLayout = new javax.swing.GroupLayout(panelTabLogout);
         panelTabLogout.setLayout(panelTabLogoutLayout);

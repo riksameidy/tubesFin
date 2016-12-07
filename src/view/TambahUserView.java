@@ -14,13 +14,17 @@ import javax.swing.JTextField;
  *
  * @author apple
  */
-public class TambahBarangView extends javax.swing.JFrame implements View{
+public class TambahUserView extends javax.swing.JFrame implements View{
 
     /**
      * Creates new form TambahBarangView
      */
-    public TambahBarangView() {
+    public TambahUserView() {
         initComponents();
+        cbJenisUser.removeAllItems();
+        cbJenisUser.addItem("Admin Fakultas");
+        cbJenisUser.addItem("Departemen Inventaris");
+        cbJenisUser.addItem("Departemen Keuangan");
     }
 
     /**
@@ -33,55 +37,47 @@ public class TambahBarangView extends javax.swing.JFrame implements View{
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        tfJumlah = new javax.swing.JTextField();
-        tfHarga = new javax.swing.JTextField();
-        cBoxLokasi = new javax.swing.JComboBox<>();
-        cBoxKategori = new javax.swing.JComboBox<>();
+        tfPassword = new javax.swing.JTextField();
+        tfNama = new javax.swing.JTextField();
+        cbJenisUser = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         btnTambahPanel = new javax.swing.JPanel();
         btnKembali = new javax.swing.JButton();
-        tfNamaBarang = new javax.swing.JTextField();
+        tfUsername = new javax.swing.JTextField();
         btnTambahPanel1 = new javax.swing.JPanel();
         btnTambah = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(800, 600));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        tfHarga.addActionListener(new java.awt.event.ActionListener() {
+        tfNama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfHargaActionPerformed(evt);
+                tfNamaActionPerformed(evt);
             }
         });
 
-        cBoxLokasi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cBoxLokasi.addActionListener(new java.awt.event.ActionListener() {
+        cbJenisUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbJenisUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cBoxLokasiActionPerformed(evt);
+                cbJenisUserActionPerformed(evt);
             }
         });
-
-        cBoxKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel1.setText("Nama Barang");
+        jLabel1.setText("Username");
 
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel2.setText("Jumlah");
+        jLabel2.setText("Password");
 
         jLabel5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel5.setText("Harga");
+        jLabel5.setText("Nama");
 
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel3.setText("Lokasi");
-
-        jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel4.setText("Kategori Barang");
+        jLabel3.setText("Jenis User");
 
         btnTambahPanel.setBackground(new java.awt.Color(48, 63, 159));
 
@@ -145,15 +141,13 @@ public class TambahBarangView extends javax.swing.JFrame implements View{
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(61, 61, 61)
+                            .addComponent(jLabel3))
+                        .addGap(99, 99, 99)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfHarga, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
-                            .addComponent(tfJumlah, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
-                            .addComponent(tfNamaBarang, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cBoxLokasi, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cBoxKategori, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(tfNama, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
+                            .addComponent(tfPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
+                            .addComponent(tfUsername, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cbJenisUser, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnTambahPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(348, 348, 348)
@@ -166,24 +160,20 @@ public class TambahBarangView extends javax.swing.JFrame implements View{
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(tfNamaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(tfHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(cBoxLokasi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cBoxKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                    .addComponent(cbJenisUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnTambahPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnTambahPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -215,13 +205,13 @@ public class TambahBarangView extends javax.swing.JFrame implements View{
         // TODO add your handling code here:
     }//GEN-LAST:event_btnTambahActionPerformed
 
-    private void cBoxLokasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBoxLokasiActionPerformed
+    private void cbJenisUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbJenisUserActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cBoxLokasiActionPerformed
+    }//GEN-LAST:event_cbJenisUserActionPerformed
 
-    private void tfHargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfHargaActionPerformed
+    private void tfNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNamaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfHargaActionPerformed
+    }//GEN-LAST:event_tfNamaActionPerformed
 
     
 
@@ -230,17 +220,15 @@ public class TambahBarangView extends javax.swing.JFrame implements View{
     private javax.swing.JButton btnTambah;
     private javax.swing.JPanel btnTambahPanel;
     private javax.swing.JPanel btnTambahPanel1;
-    private javax.swing.JComboBox<String> cBoxKategori;
-    private javax.swing.JComboBox<String> cBoxLokasi;
+    private javax.swing.JComboBox<String> cbJenisUser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField tfHarga;
-    private javax.swing.JTextField tfJumlah;
-    private javax.swing.JTextField tfNamaBarang;
+    private javax.swing.JTextField tfNama;
+    private javax.swing.JTextField tfPassword;
+    private javax.swing.JTextField tfUsername;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -262,25 +250,23 @@ public class TambahBarangView extends javax.swing.JFrame implements View{
         return btnTambah;
     }
 
-    public JComboBox<String> getcBoxKategori() {
-        return cBoxKategori;
+    public JComboBox<String> getCbJenisUser() {
+        return cbJenisUser;
     }
 
-    public JComboBox<String> getcBoxLokasi() {
-        return cBoxLokasi;
+    public JTextField getTfNama() {
+        return tfNama;
     }
 
-    public JTextField getTfHarga() {
-        return tfHarga;
+    public JTextField getTfPassword() {
+        return tfPassword;
     }
 
-    public JTextField getTfJumlah() {
-        return tfJumlah;
+    public JTextField getTfUsername() {
+        return tfUsername;
     }
-
-    public JTextField getTfNamaBarang() {
-        return tfNamaBarang;
-    }
+    
+    
     
     
     
